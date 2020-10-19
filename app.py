@@ -103,7 +103,7 @@ class SecondOrderPolynomial():
         '''
         look at the unfactored polynomial and factor it
 
-        (mx + j)(nx + k) -> ax^2 + bx + c
+         ax^2 + bx + c -> (mx + j)(nx + k)
         '''
         if self.m and self.j and self.n and self.k:
             pass
@@ -121,7 +121,6 @@ class SecondOrderPolynomial():
                 factor_pair_of_a = int(self.a / factor_of_a)
                 for factor_of_c in factors_of_c:
                     factor_pair_of_c = int(self.c / factor_of_c)
-
                     if factor_of_a * factor_of_c + factor_pair_of_a * factor_pair_of_c == self.b:
                         self.m = factor_of_a
                         self.n = factor_pair_of_a
@@ -176,7 +175,7 @@ def get_factors(x):
     '''
     factors = []
 
-    for n in range(1, x+1):
+    for n in range(1, abs(x)+1):
         if x % n == 0:
             factors.append(n)
     return factors
